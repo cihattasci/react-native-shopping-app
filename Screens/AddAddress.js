@@ -61,9 +61,12 @@ export default function AddAddress(props) {
               country: state.country,
               billingAddress: state.billingAddress,
               billingType: state.billingType,
+              size: props.route.params.size
           })
         } else {
-          navigation.navigate('Checkout')
+          navigation.navigate('Checkout',{
+            size: props.route.params.size
+          })
         }
     }
     return (
@@ -122,7 +125,7 @@ export default function AddAddress(props) {
               width={width*0.93} 
               height={height*0.06} 
               setValue={(value) => dispatch({type: "SET_COUNTRY", payload: value})}
-              />
+            />
           </View>
           <AddressPartTitle
             order={3}

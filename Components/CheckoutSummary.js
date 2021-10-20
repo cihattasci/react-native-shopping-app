@@ -23,6 +23,7 @@ function CheckoutSummary(props) {
                         quantity={props.quantity_one}
                         price={67}
                         image={"https://picsum.photos/200"}
+                        size={props.size[0]}
                     />
                     <CheckoutSummaryItem
                         name={'nike'}
@@ -30,6 +31,7 @@ function CheckoutSummary(props) {
                         quantity={props.quantity_two}
                         price={67}
                         image={"https://picsum.photos/200"}
+                        size={props.size[1]}
                     />
                 </View>
             </ScrollView>

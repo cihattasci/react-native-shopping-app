@@ -12,7 +12,7 @@ function BottomCheckout(props) {
                 <Text style={styles.totalText}>Total</Text>
                 <Text style={styles.priceText}>${props.quantity_one*67+props.quantity_two*72}</Text>
             </View>
-            <Button price={props.quantity_one*67+props.quantity_two*72} toWhere={props.toWhere} buttonName={props.buttonName} />
+            <Button size={props.size} price={props.quantity_one*67+props.quantity_two*72} toWhere={props.toWhere} buttonName={props.buttonName} />
             {
                 props.info ?
                 <Text style={styles.infoText}>{props.info}</Text>

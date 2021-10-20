@@ -11,7 +11,8 @@ export default function Button(props) {
     const goToCheckout = () => {
         if (props.toWhere) {
             navigation.navigate(`${props.toWhere}`, {
-                price: props.price
+                price: props.price,
+                size: props.size,
             })
         } else {
             let states = dispatch({type: ""});

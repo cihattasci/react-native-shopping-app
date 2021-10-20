@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Text, View, StyleSheet, Dimensions } from 'react-native'
 import {connect} from 'react-redux';
 import Separator from '../Components/Separator'
@@ -9,6 +9,8 @@ import * as actions from '../redux/actions/actions';
 const {height} = Dimensions.get('screen');
 
 function Cart(props) {
+    const [sizeOne, setSizeOne] = useState(38)
+    const [sizeTwo, setSizeTwo] = useState(38)
     return (
       <View style={styles.main}>
         <View style={styles.cartDeliverInfoPart}>
@@ -20,7 +22,7 @@ function Cart(props) {
             price={67}
             image={"https://picsum.photos/200"}
             color={"Blue"}
-            size={38}
+            size={sizeOne}
             quantity={props.quantity_one}
             discountApply={false}
             incFunc={props.inc_quantity_one}
@@ -34,7 +36,7 @@ function Cart(props) {
             price={80}
             image={"https://picsum.photos/200"}
             color={"Black"}
-            size={2}
+            size={sizeTwo}
             quantity={props.quantity_two}
             discountApply={true}
             incFunc={props.inc_quantity_two}
@@ -42,6 +44,7 @@ function Cart(props) {
             setValue={(value) => setSizeTwo(value)}
         />
         <BottomCheckout
+            size={[sizeOne, sizeTwo]}
             buttonName={"Checkout"}
             toWhere={'Checkout'}
         />

@@ -14,7 +14,9 @@ export default function Checkout(props) {
     const navigation = useNavigation();
     const goToAddAddress = () => {
         if (!props.route.params) {
-            navigation.navigate('AddAddress')
+            navigation.navigate('AddAddress', {
+                size: props.route.params.size
+            })
         } else {
             navigation.navigate('AddAddress', {
                 name: props.route.params.name,
@@ -27,6 +29,7 @@ export default function Checkout(props) {
                 billingAddress: props.route.params.billingAddress,
                 billingType: props.route.params.billingType,
                 addressTitle: props.route.params.addressTitle,
+                size: props.route.params.size
             })
         }
     }
@@ -75,7 +78,7 @@ export default function Checkout(props) {
                     <Separator/>
                     <Payment/>
                     <Separator/>
-                    <CheckoutSummary/>
+                    <CheckoutSummary size={props.route.params.size} />
                 </View>
             </ScrollView>
             <BottomCheckout
