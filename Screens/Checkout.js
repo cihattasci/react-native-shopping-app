@@ -6,6 +6,7 @@ import Payment from '../Components/Payment'
 import CheckoutSummary from '../Components/CheckoutSummary'
 import BottomCheckout from '../Components/BottomCheckout'
 import { Header, Icon } from 'react-native-elements'
+import {connect} from 'react-redux';
 
 const {width, height} = Dimensions.get('screen');
 

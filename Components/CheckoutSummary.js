@@ -2,10 +2,11 @@ import React from 'react'
 import { View, Text, StyleSheet, Dimensions } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import CheckoutSummaryItem from './CheckoutSummaryItem'
+import {connect} from 'react-redux';
 
 const {width, height} = Dimensions.get('screen');
 
-export default function CheckoutSummary() {
+function CheckoutSummary(props) {
     return (
         <View style={styles.main}>
             <View style={styles.summaryTopContainer}>
@@ -19,16 +20,14 @@ export default function CheckoutSummary() {
                     <CheckoutSummaryItem
                         name={'nike'}
                         color={'blue'}
-                        size={37}
-                        quantity={1}
+                        quantity={props.quantity_one}
                         price={67}
                         image={"https://picsum.photos/200"}
                     />
                     <CheckoutSummaryItem
                         name={'nike'}
                         color={'blue'}
-                        size={37}
-                        quantity={1}
+                        quantity={props.quantity_two}
                         price={67}
                         image={"https://picsum.photos/200"}
                     />
@@ -37,6 +36,15 @@ export default function CheckoutSummary() {
         </View>
     )
 }
+
+function mapStateToProps(state) {
+    return {
+      quantity_one: state.quantityOneReducer,
+      quantity_two: state.quantityTwoReducer
+    };
+}
+
+export default connect(mapStateToProps)(CheckoutSummary);
 
 const styles = StyleSheet.create({
     main: {

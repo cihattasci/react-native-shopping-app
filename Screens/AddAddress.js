@@ -18,7 +18,6 @@ var radio_props = [
   {label: 'Personal', value: 0 },
   {label: 'Commercial', value: 1 }
 ];
- 
 
 const initialState = {
   name: '',
@@ -113,7 +112,7 @@ export default function AddAddress(props) {
              color="#868E96" 
              width={width*0.93} 
              height={height*0.06} 
-             onChangeText={(value) => dispatch({type: "SET_CITY", payload: value})}
+             setValue={(value) => dispatch({type: "SET_CITY", payload: value})}
              />
           </View>
           <View style={{marginTop: 10}}>
@@ -122,7 +121,7 @@ export default function AddAddress(props) {
               color="#868E96"
               width={width*0.93} 
               height={height*0.06} 
-              onChangeText={(value) => dispatch({type: "SET_COUNTRY", payload: value})}
+              setValue={(value) => dispatch({type: "SET_COUNTRY", payload: value})}
               />
           </View>
           <AddressPartTitle
@@ -148,7 +147,7 @@ export default function AddAddress(props) {
             />
           </View>
           <View style={styles.buttonContainer}>
-            <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
+            <TouchableWithoutFeedback onPress={goBack}>
               <View style={styles.cancelButton}>
                 <Text style={styles.cancelButtonTextStyle}>Cancel</Text>
               </View>

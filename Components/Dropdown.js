@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import SelectDropdown from 'react-native-select-dropdown'
 
 export default function Dropdown(props) {
@@ -8,8 +8,9 @@ export default function Dropdown(props) {
             <SelectDropdown
                             data={props.data}
                             onSelect={(selectedItem, index) => {
-                                console.log(selectedItem, index)
+                                props.setValue(selectedItem)
                             }}
+                            defaultValue={props.defaultValue}
                             buttonTextAfterSelection={(selectedItem, index) => {
                                 return selectedItem
                             }}

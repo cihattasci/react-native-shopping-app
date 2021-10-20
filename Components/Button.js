@@ -10,7 +10,9 @@ export default function Button(props) {
     const [state, dispatch] = useReducer(reducer);
     const goToCheckout = () => {
         if (props.toWhere) {
-            navigation.navigate(`${props.toWhere}`)
+            navigation.navigate(`${props.toWhere}`, {
+                price: props.price
+            })
         } else {
             let states = dispatch({type: ""});
             /*states.saveCard ? dispatch({type:"SAVE_CARD_INFO", payload: {

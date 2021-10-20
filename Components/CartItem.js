@@ -56,7 +56,7 @@ function CartItem(props) {
                 <View style={styles.labelContainer2}>
                     <Text style={styles.labelColorText}>{props.color}</Text>
                     <View style={{width: 50, marginRight: 50}}>
-                        <Dropdown data={numbers} width={100} height={40} />
+                        <Dropdown setValue={props.setValue} data={numbers} width={100} height={40} />
                     </View>
                     <View style={styles.counter}>
                         <Text onPress={props.decFunc} style={styles.counterDec}>-</Text>

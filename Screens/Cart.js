@@ -25,6 +25,7 @@ function Cart(props) {
             discountApply={false}
             incFunc={props.inc_quantity_one}
             decFunc={props.dec_quantity_one}
+            setValue={(value) => setSizeOne(value)}
         />
         <Separator />
         <CartItem
@@ -38,6 +39,7 @@ function Cart(props) {
             discountApply={true}
             incFunc={props.inc_quantity_two}
             decFunc={props.dec_quantity_two}
+            setValue={(value) => setSizeTwo(value)}
         />
         <BottomCheckout
             buttonName={"Checkout"}
