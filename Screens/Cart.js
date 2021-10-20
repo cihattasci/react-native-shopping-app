@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Text, View, StyleSheet, Dimensions } from 'react-native'
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Separator from '../Components/Separator'
 import CartItem from '../Components/CartItem'
@@ -41,7 +40,6 @@ function Cart(props) {
             decFunc={props.dec_quantity_two}
         />
         <BottomCheckout
-            price={147}
             buttonName={"Checkout"}
             toWhere={'Checkout'}
         />

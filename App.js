@@ -25,12 +25,16 @@ function App() {
             <Stack.Screen
               name="Checkout"
               component={Checkout}
-              options={{ title: 'Secure Payment', headerBackTitleVisible: false }}
+              options={{
+                headerShown: false
+              }}
             />
             <Stack.Screen
               name="AddAddress"
               component={AddAddress}
-              options={{ title: 'Add Address', headerBackTitleVisible: false }}
+              options={{
+                headerShown: false
+              }}
             />
           </Stack.Navigator>
         </NavigationContainer>

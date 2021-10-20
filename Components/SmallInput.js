@@ -11,6 +11,8 @@ export default function SmallInput(props) {
                 placeholder={`${props.placeholder}`}
                 placeholderTextColor={'#868E96'}
                 keyboardType="numeric"
+                value={props.value}
+                onChangeText={value => props.onChangeText(value)}
             />
         </View>
     )

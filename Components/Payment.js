@@ -1,12 +1,24 @@
-import React from 'react'
+import React, {useReducer} from 'react'
 import { View, Text, StyleSheet, Dimensions } from 'react-native'
 import { Icon } from 'react-native-elements'
 import BigInput from './BigInput'
 import SmallInput from './SmallInput'
+import { reducer } from '../reducer';
+import CheckBox from '@react-native-community/checkbox';
 
 const {width, height} = Dimensions.get('screen');
 
+const initialState = {
+    cardName: '',
+    cardNumber: '',
+    month: 0,
+    year: 0,
+    securityCode: 0,
+    saveCard: 0,
+}
+
 export default function Payment(props) {
+    const [state, dispatch] = useReducer(reducer, initialState);
     return (
         <View style={styles.main}>
             <Text style={styles.titleText}>Payment</Text>
@@ -16,18 +28,47 @@ export default function Payment(props) {
                     <Text style={styles.addCardText}>Add Debit / Credit Card</Text>
                 </View>
                 <View style={{alignItems: "center"}}>
-                    <BigInput keyboardType="default" placeholder="Card Holder's Name"/>
-                    <BigInput keyboardType="numeric" placeholder="Card Number"/>
+                    <BigInput 
+                        keyboardType="default"
+                        placeholder="Card Holder's Name"
+                        value={state.cardName} 
+                        onChangeText={(value) => dispatch({type: "SET_CARD_NAME", payload: value})}
+                    />
+                    <BigInput 
+                        keyboardType="numeric" 
+                        placeholder="Card Number"
+                        value={state.cardNumber} 
+                        onChangeText={(value) => dispatch({type: "SET_CARD_NUMBER", payload: value})}
+                    />
                 </View>
                 <Text style={styles.expireText}>Expire Date</Text>
                 <View style={styles.expireContainer}>
                     <View style={styles.smallInputContainer}>
-                        <SmallInput placeholder="Month"/>
-                        <SmallInput placeholder="Year"/>
+                        <SmallInput
+                            placeholder="Month"
+                            value={state.month} 
+                            onChangeText={(value) => dispatch({type: "SET_MONTH", payload: value})}
+                         />
+                        <SmallInput 
+                            placeholder="Year"
+                            value={state.year} 
+                            onChangeText={(value) => dispatch({type: "SET_YEAR", payload: value})}
+                        />
                     </View>
                     <View style={{flexDirection: "row", alignItems: "center"}}>
-                        <SmallInput placeholder="Security Code"/>
+                        <SmallInput 
+                            placeholder="Security Code"
+                            value={state.securityCode} 
+                            onChangeText={(value) => dispatch({type: "SET_SECURITY_CODE", payload: value})}
+                        />
                         <Icon style={{marginLeft: 10}}name="info-with-circle" size={25} type="entypo" color="#3498DB" />
+                    </View>
+                    <View style={styles.checkboxContainer}>
+                        <CheckBox 
+                        value={state.saveCard}
+                        onValueChange={(value) => dispatch({type: "SET_SAVE_CARD", payload: value})}
+                        disabled={false} />
+                        <Text style={styles.checkboxText}>Remember my card for next purchases</Text>
                     </View>
                 </View>
             </View>
@@ -47,7 +88,7 @@ const styles = StyleSheet.create({
     paymentContainer: {
         marginTop: 10,
         width: width*0.9,
-        height: height*0.42,
+        height: height*0.46,
         backgroundColor: '#F5F5F5',
         borderRadius: 5,
         padding: 10
@@ -76,5 +117,15 @@ const styles = StyleSheet.create({
         flexDirection: "row", 
         alignItems: "center", 
         justifyContent: "space-between"
-    }
+    },
+    checkboxText: {
+      marginLeft: 20,
+      fontSize: 14
+    },
+    checkboxContainer: {
+      flexDirection: 'row', 
+      marginTop: 10,
+      alignItems: 'center',
+      marginLeft: 3
+    },
 })

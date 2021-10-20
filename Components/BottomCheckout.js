@@ -1,15 +1,16 @@
 import React from 'react'
 import { View, Text, StyleSheet, Dimensions } from 'react-native'
 import Button from './Button'
+import {connect} from 'react-redux';
 
 const {width, height} = Dimensions.get('screen');
 
-export default function BottomCheckout(props) {
+function BottomCheckout(props) {
     return (
         <View style={[styles.main, {height: props.info ? height*0.15 : height*0.1}]}>
             <View style={styles.textContainer}>
                 <Text style={styles.totalText}>Total</Text>
-                <Text style={styles.priceText}>${props.price}</Text>
+                <Text style={styles.priceText}>${props.quantity_two*72+props.quantity_one*67}</Text>
             </View>
             <Button toWhere={props.toWhere} buttonName={props.buttonName} />
             {
@@ -20,6 +21,15 @@ export default function BottomCheckout(props) {
         </View>
     )
 }
+
+function mapStateToProps(state) {
+    return {
+      quantity_one: state.quantityOneReducer,
+      quantity_two: state.quantityTwoReducer
+    };
+}
+
+export default connect(mapStateToProps)(BottomCheckout);
 
 const styles = StyleSheet.create({
     main: {

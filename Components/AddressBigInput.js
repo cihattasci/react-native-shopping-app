@@ -11,6 +11,8 @@ export default function AddressBigInput(props) {
                 placeholder={`${props.placeholder}`}
                 placeholderTextColor={'#868E96'}
                 keyboardType={props.keyboardType}
+                value={props.value}
+                onChangeText={value => props.onChangeText(value)}
             />
         </View>
     )

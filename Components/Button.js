@@ -1,13 +1,26 @@
-import React from 'react'
+import React, {useReducer} from 'react'
 import { View, Text, Dimensions, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
+import { reducer } from '../reducer';
 
 const {width, height} = Dimensions.get('screen');
 
 export default function Button(props) {
     const navigation = useNavigation();
+    const [state, dispatch] = useReducer(reducer);
     const goToCheckout = () => {
-        navigation.navigate(`${props.toWhere}`)
+        if (props.toWhere) {
+            navigation.navigate(`${props.toWhere}`)
+        } else {
+            let states = dispatch({type: ""});
+            /*states.saveCard ? dispatch({type:"SAVE_CARD_INFO", payload: {
+                cardName: states.cardName,
+                cardNumber: states.cardNumber,
+                month: states.month,
+                year: states.year,
+                securityCode: states.securityCode,
+            }}) : null*/
+        }
     }
     return (
         <View>

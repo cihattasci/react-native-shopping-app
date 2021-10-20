@@ -1,12 +1,17 @@
 import React from 'react'
-import { View, Text, StyleSheet, Dimensions, Image } from 'react-native'
-import {increaseQuantityOne, decreaseQuantityOne} from '../redux/actions/actions';
+import { View, Text, StyleSheet, Dimensions, Image, ImageBackground } from 'react-native'
 import Dropdown from './Dropdown';
+import { Icon } from 'react-native-elements'
 
 const {width, height} = Dimensions.get('screen');
 const numbers = ["38", "39", "40", "41"]
 
 function CartItem(props) {
+
+    const share = () => {
+        alert(props.name)
+    }
+
     return (
         <View style={styles.main}>
             <View style={styles.topContainer}>
@@ -27,10 +32,22 @@ function CartItem(props) {
                 </View>
             </View>
             <View style={styles.bottomContainer}>
-                <Image
+                <ImageBackground
                     style={styles.productImage}
                     source={{uri: props.image}}
+                >
+                <Icon
+                    name="share-alternative"
+                    type="entypo"
+                    size={25}
+                    color="white"
+                    style={{
+                        marginTop: 110,
+                        marginLeft: 110
+                    }}
+                    onPress={share}
                 />
+                </ImageBackground>
                 <View style={styles.labelContainer}>
                     <Text style={styles.labelText}>Color</Text>
                     <Text style={styles.labelText}>Size</Text>
