@@ -12,13 +12,9 @@ function CartItem(props) {
 
     const share = async () => {
         //navigation.navigate('Detail')
-        const idFunc = () => {
-            return props.id
-        }
         try {
           await Share.share({
-            message:
-              'Shopping app product detail' ,
+            message: props.name + ' / ' + props.detail,
             url: '/' + props.id
           });
         } catch (error) {
