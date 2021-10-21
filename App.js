@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import configureStore from './redux/reducers/configureStore';
@@ -28,13 +28,12 @@ const config = {
  };
  
 const linking = {
-  prefixes: ["prefix"],
+  prefixes: ["https://heyvey.com"],
   config
 };
 
 function App() {
 
-  const [url, setUrl] = useState(null);
   return (
       <Provider store={store}>
         <NavigationContainer linking={linking}>

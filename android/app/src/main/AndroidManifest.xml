@@ -21,13 +21,13 @@
             <category android:name="android.intent.category.DEFAULT" />
             <category android:name="android.intent.category.BROWSABLE" />
             <data android:scheme="https"
-                  android:host="test.saadibrah.im" />
+                  android:host="heyvey.com" />
         </intent-filter>
         <intent-filter android:label="filter_react_native">
           <action android:name="android.intent.action.VIEW" />
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
-          <data android:scheme="saadibrahim" />
+          <data android:scheme="heyvey" />
         </intent-filter>
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />

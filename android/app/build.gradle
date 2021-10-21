@@ -160,12 +160,6 @@ android {
         }
     }
     buildTypes {
-        release {
-        ....
-        signingConfig signingConfigs.release
-        }
-    }
-    buildTypes {
         debug {
             signingConfig signingConfigs.debug
             if (nativeArchitectures) {
