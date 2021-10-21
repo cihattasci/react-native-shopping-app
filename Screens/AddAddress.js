@@ -1,9 +1,9 @@
 import React, {useEffect, useReducer} from 'react';
 import { View, Text, StyleSheet, Dimensions, ScrollView, TouchableWithoutFeedback } from 'react-native';
-import AddressPartTitle from '../Components/AddressPartTitle';
-import AddressBigInput from '../Components/AddressBigInput';
-import AddressSmallInput from '../Components/AddressSmallInput';
-import Dropdown from '../Components/Dropdown';
+import AddressPartTitle from '../components/AddressPartTitle';
+import AddressBigInput from '../components/AddressBigInput';
+import AddressSmallInput from '../components/AddressSmallInput';
+import Dropdown from '../components/Dropdown';
 import CheckBox from '@react-native-community/checkbox';
 import RadioForm from 'react-native-simple-radio-button';
 import { useNavigation } from '@react-navigation/native';

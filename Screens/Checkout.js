@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text, TouchableWithoutFeedback, StyleSheet, Dimensions, ScrollView } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import Separator from '../Components/Separator'
-import Payment from '../Components/Payment'
-import CheckoutSummary from '../Components/CheckoutSummary'
-import BottomCheckout from '../Components/BottomCheckout'
+import Separator from '../components/Separator'
+import Payment from '../components/Payment'
+import CheckoutSummary from '../components/CheckoutSummary'
+import BottomCheckout from '../components/BottomCheckout'
 import { Header, Icon } from 'react-native-elements'
 import {connect} from 'react-redux';
 

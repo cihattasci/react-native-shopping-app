@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import { Text, View, StyleSheet, Dimensions } from 'react-native'
 import {connect} from 'react-redux';
-import Separator from '../Components/Separator'
-import CartItem from '../Components/CartItem'
-import BottomCheckout from '../Components/BottomCheckout'
+import Separator from '../components/Separator'
+import CartItem from '../components/CartItem'
+import BottomCheckout from '../components/BottomCheckout'
 import * as actions from '../redux/actions/actions';
 
 const {height} = Dimensions.get('screen');
@@ -28,6 +28,7 @@ function Cart(props) {
             incFunc={props.inc_quantity_one}
             decFunc={props.dec_quantity_one}
             setValue={(value) => setSizeOne(value)}
+            id={1}
         />
         <Separator />
         <CartItem
@@ -42,6 +43,7 @@ function Cart(props) {
             incFunc={props.inc_quantity_two}
             decFunc={props.dec_quantity_two}
             setValue={(value) => setSizeTwo(value)}
+            id={2}
         />
         <BottomCheckout
             size={[sizeOne, sizeTwo]}

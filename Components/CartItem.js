@@ -1,16 +1,30 @@
 import React from 'react'
-import { View, Text, StyleSheet, Dimensions, Image, ImageBackground } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, Share, ImageBackground } from 'react-native'
 import Dropdown from './Dropdown';
 import { Icon } from 'react-native-elements'
+import { useNavigation } from '@react-navigation/native';
 
 const {width, height} = Dimensions.get('screen');
 const numbers = ["38", "39", "40", "41"]
 
 function CartItem(props) {
+    const navigation = useNavigation();
 
-    const share = () => {
-        alert(props.name)
-    }
+    const share = async () => {
+        //navigation.navigate('Detail')
+        const idFunc = () => {
+            return props.id
+        }
+        try {
+          await Share.share({
+            message:
+              'Shopping app product detail' ,
+            url: '/' + props.id
+          });
+        } catch (error) {
+          alert(error.message);
+        }
+      };
 
     return (
         <View style={styles.main}>
