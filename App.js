@@ -25,7 +25,7 @@ const config = {
       },
     }
   },
- };
+};
  
 const linking = {
   prefixes: ["https://heyvey.com"],

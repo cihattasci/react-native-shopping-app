@@ -20,7 +20,7 @@ function CartItem(props) {
         } catch (error) {
           alert(error.message);
         }
-      };
+    };
 
     return (
         <View style={styles.main}>

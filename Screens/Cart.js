@@ -9,6 +9,7 @@ import * as actions from '../redux/actions/actions';
 const {height} = Dimensions.get('screen');
 
 function Cart(props) {
+    //alert(props.route.params.id)
     const [sizeOne, setSizeOne] = useState(38)
     const [sizeTwo, setSizeTwo] = useState(38)
     return (
